@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_THOUGHT } from '../../utils/mutations';
-import { QUERY_THOUGHTS } from '../../utils/queries';
+import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
@@ -16,18 +16,20 @@ const ThoughtForm = () => {
   (ADD_THOUGHT, {
     refetchQueries: [
       QUERY_THOUGHTS,
-      'getThoughts'
+      'getThoughts',
+      QUERY_ME,
+      'me'
     ]
   });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const { data } = await addThought({
         variables: {
           thoughtText,
-          thoughtAuthor: Auth.getProfile().data.username,
+          // Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username 
+          thoughtAuthor: Auth.getProfile().authenticatedPerson.username
         },
       });
 
