@@ -12,6 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  
 }
 
 a {
@@ -59,6 +60,7 @@ button:focus-visible {
   :root {
     color: #213547;
     background-color: #ffffff;
+    background-image: url(../natural-disasters.jpg);
   }
   a:hover {
     color: #747bff;
