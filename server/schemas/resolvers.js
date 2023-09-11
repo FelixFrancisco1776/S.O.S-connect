@@ -1,21 +1,22 @@
-const { User, Thought } = require('../models');
+const { User, CheckItem } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username });
     },
-    thoughts: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+    checkItems: async (parent, args, context) => {
+      return CheckItem.find();
     },
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
-    },
+    userCheckItems: async (parent, args, context) => {
+      return CheckItem.find({
+        userId: args.userId
+      });
+    }
   },
 
   Mutation: {
@@ -41,38 +42,14 @@ const resolvers = {
 
       return { token, user };
     },
-    addThought: async (parent, { thoughtText, thoughtAuthor }) => {
-      const thought = await Thought.create({ thoughtText, thoughtAuthor });
+    addCheckItem: async(parent, args, context) => {
+      const item = await CheckItem.create({
+        text: args.text,
+        userId: "64fe6b7ab451d4dd27e6a63d" // test id
+       });
 
-      await User.findOneAndUpdate(
-        { username: thoughtAuthor },
-        { $addToSet: { thoughts: thought._id } }
-      );
-
-      return thought;
-    },
-    addComment: async (parent, { thoughtId, commentText, commentAuthor }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
-        {
-          $addToSet: { comments: { commentText, commentAuthor } },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
-    },
-    removeComment: async (parent, { thoughtId, commentId }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
-        { $pull: { comments: { _id: commentId } } },
-        { new: true }
-      );
-    },
+       return item;
+    }
   },
 };
 
