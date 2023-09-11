@@ -11,7 +11,9 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
   typeDefs,
+  // routes - defines what type of request can the server accept
   resolvers,
+  // controllers - defines what action to take depending on the request
 });
 
 // Create a new instance of an Apollo server with the GraphQL schema
@@ -25,13 +27,13 @@ const startApolloServer = async () => {
     context: authMiddleware
   }));
 
-  if (process.env.NODE_ENV === 'production') {
+  // if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));
 
     app.get('*', (req, res) => {
       res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
-  }
+  // }
 
   db.once('open', () => {
     app.listen(PORT, () => {
