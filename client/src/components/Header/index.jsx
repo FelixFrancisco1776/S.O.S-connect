@@ -12,14 +12,17 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="m-0">SOS Crisis </h1>
+            <h1 className="m-0">Tech Thoughts</h1>
           </Link>
-          <p className="m-0">If you do not wanna die plan accordingly</p>
+          <p className="m-0">Get into the mind of a programmer.</p>
         </div>
         <div>
           {Auth.loggedIn() ? (
             <>
-              <span>Hey there, {Auth.getProfile().data.username}!</span>
+              <Link className="btn btn-lg btn-info m-2" to="/me">
+                {/* Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username  */}
+                {Auth.getProfile().authenticatedPerson.username}'s profile
+              </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
               </button>
