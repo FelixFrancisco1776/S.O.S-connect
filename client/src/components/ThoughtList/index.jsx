@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 
+
+
 const ThoughtList = ({
   thoughts,
   title,
@@ -9,7 +11,18 @@ const ThoughtList = ({
   if (!thoughts.length) {
     return <h2 style={{color:"#e1e1e1"}}>Please make a List</h2>;
   }
-
+// const orderedList = (text) => {
+// const endTitle = text.indexOf(":")
+//   const title = text.slice(0, endTitle)
+// console.log(title)
+// return (
+//   <div>
+// <h1> {title}: </h1>
+// <ol> {}.</ol>
+// </div>
+// )
+// }
+// // ol li
   return (
     <div >
       {showTitle && <h3>{title}</h3>}
@@ -40,7 +53,7 @@ const ThoughtList = ({
               )}
             </h4>
             <div className="card-body p-2">
-              <p>{thought.thoughtText}</p>
+              <p> {thought.thoughtText} </p>
             </div>
             <Link
               className="btn btn-primary"
