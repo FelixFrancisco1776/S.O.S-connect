@@ -54,13 +54,13 @@ const resolvers = {
           title: args.title,
           items: args.items,
           // userId: args.userId
-          userId: testId, // test id
+          userId: context.user._id, // test id
         });
 
         //  update the currently logged in user's checklist to include this newly created checklist
         const updatedUser = await User.findOneAndUpdate(
           {
-            _id: testId, // test id
+            _id: context.user._id, // test id
           },
           {
             $push: { checkLists: checklist._id },

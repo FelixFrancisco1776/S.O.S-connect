@@ -16,7 +16,7 @@ export const QUERY_USER = gql`
 `;
 
 
-export const QUERY_THOUGHTS = gql`
+export const GET_ALL_CHECKLISTS = gql`
 query GET_ALL_CHECKLISTS {
   checkLists {
     _id

@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 
 
 //  change all thoughts to checkLists
-const checkLists = ({ checkLists, title }) => {
+const checkList = ({ checkLists, title }) => {
   if (!checkLists?.length) {
     return <h3>No Thoughts Yet</h3>;
   }
-// change the routing to add this list to the pages 
+// change the routing to add this list to the pages cd ..
   return (
     <div>
       <h3>{title}</h3>
@@ -43,5 +43,5 @@ const checkLists = ({ checkLists, title }) => {
   );
 };
 
-export default checkLists;
+export default checkList;
 

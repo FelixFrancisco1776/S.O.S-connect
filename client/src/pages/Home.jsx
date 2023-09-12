@@ -1,13 +1,13 @@
 import { useQuery } from "@apollo/client";
 
-import ThoughtList from "../components/ThoughtList";
-import ThoughtForm from "../components/ThoughtForm";
+import Checklist from "../components/Checklist";
+// import ThoughtForm from "../components/ThoughtForm";
 
-import { QUERY_THOUGHTS } from "../utils/queries";
+import { GET_ALL_CHECKLISTS } from "../utils/queries";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
+  const { loading, data } = useQuery(GET_ALL_CHECKLISTS);
+  const checkLists = data?.checkLists || [];
 
   return (
     <main>
@@ -64,9 +64,9 @@ const Home = () => {
             {loading ? (
               <div>Loading...</div>
             ) : (
-              <ThoughtList
-                thoughts={thoughts}
-                title="Some Feed for Thought(s)..."
+              <Checklist
+                checkLists={checkLists}
+                title="Here are your checklists!"
               />
             )}
           </div>
