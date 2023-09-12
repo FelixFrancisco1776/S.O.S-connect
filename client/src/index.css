@@ -1084,7 +1084,7 @@ a:hover {
 }
 
 .card {
-  border: 1px solid #1a1a1a;
+  /* border: 1px solid #1a1a1a; */
   margin-bottom: 1rem;
 }
 
@@ -1169,9 +1169,7 @@ label form [type='radio'] {
 
 .container {
   width: 85%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
 }
 
 .container.container-fluid {
@@ -1522,7 +1520,7 @@ label form [type='radio'] {
 }
 
 /* col-lg */
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1992px) {
   .col-md-auto {
     flex-grow: 1;
     flex-basis: 0;

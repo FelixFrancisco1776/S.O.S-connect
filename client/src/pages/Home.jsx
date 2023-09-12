@@ -56,10 +56,8 @@ const Home = () => {
           </ul>
         </aside>
         <div className="col-md-5 ml-auto">
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: "1px dotted #1a1a1a" }}
-          >
+          <div className="col-12 col-md-8 mb-3 p-3"
+          style={{backgroundColor:"#edede9", opacity:"0.8"}}>
             <ThoughtForm />
           </div>
           <div className="col-12 col-md-8 mb-3">

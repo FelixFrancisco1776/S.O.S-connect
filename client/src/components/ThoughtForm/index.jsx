@@ -43,8 +43,8 @@ const ThoughtForm = () => {
   };
 
   return (
-    <div >
-      <div >
+    <div>
+      <div>
         <h3>What Disaster are you preparing for?</h3>
 
         {Auth.loggedIn() ? (
