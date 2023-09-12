@@ -1,26 +1,26 @@
-const { User, Thought } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
+const { User, CheckList } = require("../models");
+const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find().populate("checkLists");
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
-    },
-    thoughts: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
-    },
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
-    },
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts');
+    user: async (parent, { username }, context) => {
+      if(!username) {
+        if(context.user) {
+          const loggedInUsername = context.user.username;
+          console.log(loggedInUsername)
+          return User.findOne({ username: loggedInUsername }).populate("checkLists");
+        } else {
+          throw AuthenticationError;
+        }
+      } else {
+        return User.findOne({ username }).populate("checkLists");
       }
-      throw AuthenticationError;
+    },
+    checkLists: async (parent, args, context) => {
+      return CheckList.find();
     },
   },
 
@@ -47,71 +47,30 @@ const resolvers = {
 
       return { token, user };
     },
-    addThought: async (parent, { thoughtText }, context) => {
+    addCheckList: async (parent, args, context) => {
       if (context.user) {
-        const thought = await Thought.create({
-          thoughtText,
-          thoughtAuthor: context.user.username,
+        //  add a new checklist to the database
+        const checklist = await CheckList.create({
+          title: args.title,
+          items: args.items,
+          // userId: args.userId
+          userId: testId, // test id
         });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { thoughts: thought._id } }
-        );
-
-        return thought;
-      }
-      throw AuthenticationError;
-    },
-    addComment: async (parent, { thoughtId, commentText }, context) => {
-      if (context.user) {
-        return Thought.findOneAndUpdate(
-          { _id: thoughtId },
+        //  update the currently logged in user's checklist to include this newly created checklist
+        const updatedUser = await User.findOneAndUpdate(
           {
-            $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username },
-            },
+            _id: testId, // test id
           },
           {
-            new: true,
-            runValidators: true,
+            $push: { checkLists: checklist._id },
           }
         );
-      }
-      throw AuthenticationError;
-    },
-    removeThought: async (parent, { thoughtId }, context) => {
-      if (context.user) {
-        const thought = await Thought.findOneAndDelete({
-          _id: thoughtId,
-          thoughtAuthor: context.user.username,
-        });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { thoughts: thought._id } }
-        );
-
-        return thought;
+        return checklist;
+      } else {
+        throw AuthenticationError;
       }
-      throw AuthenticationError;
-    },
-    removeComment: async (parent, { thoughtId, commentId }, context) => {
-      if (context.user) {
-        return Thought.findOneAndUpdate(
-          { _id: thoughtId },
-          {
-            $pull: {
-              comments: {
-                _id: commentId,
-                commentAuthor: context.user.username,
-              },
-            },
-          },
-          { new: true }
-        );
-      }
-      throw AuthenticationError;
     },
   },
 };

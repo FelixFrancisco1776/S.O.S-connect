@@ -41,7 +41,7 @@ const ThoughtForm = () => {
       setCharacterCount(value.length);
     }
   };
-
+// change the thought list form to make it the checklist and to add items to it and also connect the querys
   return (
     <div>
       <div>

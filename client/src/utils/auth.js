@@ -1,5 +1,5 @@
 import decode from 'jwt-decode';
-
+// fix the auth service to use the correct token name and to check if the token is expired, also for some reason the token is not working on the front end
 class AuthService {
   getProfile() {
     return decode(this.getToken());

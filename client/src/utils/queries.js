@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-
+// change the querys to match the checklist
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
@@ -15,15 +15,20 @@ export const QUERY_USER = gql`
   }
 `;
 
+
 export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+query GET_ALL_CHECKLISTS {
+  checkLists {
+    _id
+    createdAt
+    items {
+      text
+      isCheck
     }
+    title
+    userId
   }
+}
 `;
 
 export const QUERY_SINGLE_THOUGHT = gql`
