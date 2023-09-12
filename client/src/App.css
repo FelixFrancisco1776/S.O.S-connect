@@ -3,6 +3,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-family: 'Gluten', cursive;
+}
+header {
+  font-family: 'Comfortaa', cursive;
+}
+
+header h1{
+  font-size: 60px;
 }
 #root {
   /* max-width: 2000px; */
@@ -31,9 +39,9 @@ body {
   padding: 20px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #aab7cf transparent;
+  scrollbar-color: #edede9 transparent;
   box-shadow: 0px 0px 20px rgba(58, 91, 148, 0.1);
-  /* background-color: #f0e5e5b0;
+  /* background-color: #edede9;
   opacity: 2; */
 }
 .sidebar-nav {
@@ -80,7 +88,8 @@ body {
 
 .sidebar-nav .nav-link.collapsed {
   color: #012970;
-  background: #fff;
+  background: #edede9;
+  opacity: 0.8;
 }
 
 .sidebar-nav .nav-link.collapsed i {
@@ -173,3 +182,4 @@ body {
 .read-the-docs {
   color: #888;
 }
+

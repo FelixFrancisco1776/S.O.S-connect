@@ -369,7 +369,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'JetBrains Mono', monospace;
+  /* font-family: 'JetBrains Mono', monospace; */
   margin: 0 0 0.5rem;
   line-height: 1.25;
 }
@@ -1422,6 +1422,13 @@ label form [type='radio'] {
   .align-content-center-sm {
     align-content: center;
   }
+  #sidebar{
+    position: fixed;
+    top: 20px;
+    left: 0;
+    bottom: 0;
+    width: 160px;
+  }
 }
 
 /* col-md */
@@ -1517,10 +1524,17 @@ label form [type='radio'] {
   .align-content-center-md {
     align-content: center;
   }
+  #sidebar{
+    position: fixed;
+    top: 200px;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+  }
 }
 
 /* col-lg */
-@media screen and (min-width: 1992px) {
+@media screen and (min-width: 992px) {
   .col-md-auto {
     flex-grow: 1;
     flex-basis: 0;
@@ -1612,10 +1626,17 @@ label form [type='radio'] {
   .align-content-center-lg {
     align-content: center;
   }
+  #sidebar {
+    position: fixed;
+    top: 200px;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+  }
 }
 
 /* col-xl */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 2000px) {
   .col-xl-1 {
     flex: 0 0 8.33333%;
     max-width: 8.33333%;
