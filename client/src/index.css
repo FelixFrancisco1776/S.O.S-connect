@@ -1030,12 +1030,12 @@ a:hover {
 }
 
 .btn.btn-info {
-  background-color: #c44900;
+  background-color: #16697a;
   color: #ffffff;
 }
 
 .btn.btn-info:hover {
-  background-color: #c44900;
+  background-color: #16697a;
 }
 
 .btn.btn-light {
@@ -1433,8 +1433,10 @@ label form [type="radio"] {
     top: 20px;
     left: 0;
     bottom: 0;
-    width: 160px;
+    width: 360px;
+    /* display: none; */
   }
+  
 }
 
 /* col-md */
@@ -1535,7 +1537,7 @@ label form [type="radio"] {
     top: 245px;
     left: 0;
     bottom: 0;
-    width: 300px;
+    width: 360px;
   }
 }
 
@@ -1637,7 +1639,7 @@ label form [type="radio"] {
     top: 245px;
     left: 0;
     bottom: 0;
-    width: 300px;
+    width: 360px;
   }
 }
 
