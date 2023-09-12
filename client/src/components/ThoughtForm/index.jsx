@@ -69,7 +69,7 @@ const ThoughtForm = () => {
                   style={{ lineHeight: "1.5", resize: "vertical" }}
                   onChange={handleChange}
                 ></textarea>
-                <div
+                {/* <div
                   className="form-check"
                   style={{ display: "flex", justifyContent: "flex-end" }}
                 >
@@ -85,7 +85,7 @@ const ThoughtForm = () => {
                   >
                     Check
                   </label>
-                </div>
+                </div> */}
               </div>
               <div className="col-12 col-lg-9">
                 <textarea
@@ -195,7 +195,7 @@ const ThoughtForm = () => {
           </>
         ) : (
           <p>
-            You need to be logged in to share your thoughts. Please{" "}
+            You need to be logged in to share or interact with the lists. Please{" "}
             <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
           </p>
         )}
