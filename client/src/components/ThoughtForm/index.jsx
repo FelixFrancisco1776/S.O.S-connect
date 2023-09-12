@@ -8,7 +8,18 @@ import { QUERY_THOUGHTS, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 
 const ThoughtForm = () => {
-  const [thoughtText, setThoughtText] = useState("");
+  const [thoughtText, setThoughtText] = useState(`(Disaster) Checklist:
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+`);
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -27,7 +38,18 @@ const ThoughtForm = () => {
         },
       });
 
-      setThoughtText("");
+      setThoughtText(`(Disaster) Checklist:
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+`);
     } catch (err) {
       console.error(err);
     }
@@ -63,120 +85,18 @@ const ThoughtForm = () => {
               <div className="col-12 col-lg-9">
                 <textarea
                   name="thoughtText"
-                  placeholder="Add item to list"
+                  // placeholder="Add item to list"
                   value={thoughtText}
                   className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical" }}
+                  style={{ lineHeight: "1.5", resize: "vertical", height: "350px" }}
                   onChange={handleChange}
-                ></textarea>
-                {/* <div
-                  className="form-check"
-                  style={{ display: "flex", justifyContent: "flex-end" }}
+                  
                 >
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    Check
-                  </label>
-                </div> */}
+
+</textarea>
+
               </div>
-              <div className="col-12 col-lg-9">
-                <textarea
-                  name="thoughtText"
-                  placeholder="Add item to list"
-                  value={thoughtText}
-                  className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical" }}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <div className="col-12 col-lg-9">
-                <textarea
-                  name="thoughtText"
-                  placeholder="Add item to list"
-                  value={thoughtText}
-                  className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical" }}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <div className="col-12 col-lg-9">
-                <textarea
-                  name="thoughtText"
-                  placeholder="Add item to list"
-                  value={thoughtText}
-                  className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical" }}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <div className="col-12 col-lg-9">
-                <textarea
-                  name="thoughtText"
-                  placeholder="Add item to list"
-                  value={thoughtText}
-                  className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical" }}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <div className="col-12 col-lg-9">
-                <textarea
-                  name="thoughtText"
-                  placeholder="Add item to list"
-                  value={thoughtText}
-                  className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical" }}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <div className="col-12 col-lg-9">
-                <textarea
-                  name="thoughtText"
-                  placeholder="Add item to list"
-                  value={thoughtText}
-                  className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical" }}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <div className="col-12 col-lg-9">
-                <textarea
-                  name="thoughtText"
-                  placeholder="Add item to list"
-                  value={thoughtText}
-                  className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical" }}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <div className="col-12 col-lg-9">
-                <textarea
-                  name="thoughtText"
-                  placeholder="Add item to list"
-                  value={thoughtText}
-                  className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical" }}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <div className="col-12 col-lg-9">
-                <textarea
-                  name="thoughtText"
-                  placeholder="Add item to list"
-                  value={thoughtText}
-                  className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical" }}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
+              
 
               <div className="col-12 col-lg-3">
                 <button
