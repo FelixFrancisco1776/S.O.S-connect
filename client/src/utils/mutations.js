@@ -26,8 +26,8 @@ export const ADD_USER = gql`
 // change the mutation to match the checklist
 ;
 export const ADD_CHECKLIST = gql`
-mutation ADD_CHECKLIST($title: String!, $userId: ID!, $items: [CheckItemInput]) {
-  addCheckList(title: $title, userId: $id, items: $items) {
+mutation ADD_CHECKLIST($title: String!, $items: [CheckItemInput]) {
+  addCheckList(title: $title, items: $items) {
     _id
     createdAt
     title

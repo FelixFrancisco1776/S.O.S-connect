@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 
 //  change all thoughts to checkLists
-const checkList = ({ checkLists, title }) => {
+const checkList = ({ checkLists, title, user }) => {
   if (!checkLists?.length) {
     return <h3>No Thoughts Yet</h3>;
   }
@@ -14,7 +14,7 @@ const checkList = ({ checkLists, title }) => {
         checkLists.map((checkLists) => (
           <div key={checkLists._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
-              {checkLists.userId} <br />
+              {user.username} <br />
               <span style={{ fontSize: '1rem' }}>
                 had this checkLists on {checkLists.createdAt}
               </span>

@@ -1,17 +1,18 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import ThoughtForm from '../components/ThoughtForm';
-import ThoughtList from '../components/ThoughtList';
+import Checklist from '../components/Checklist';
 
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER} from '../utils/queries';
+
+import CheckListForm from '../components/CheckListForm';
 
 import Auth from '../utils/auth';
 
 const Profile = () => {
   const { username: userParam } = useParams();
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  const { loading, data } = useQuery( QUERY_USER, {
     variables: { username: userParam },
   });
 
@@ -28,40 +29,72 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  if (!user?.username) {
-    return (
-      <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
-      </h4>
-    );
-  }
 
   return (
-    <div>
-      <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
-        </h2>
+    <main>
+    <div className="row">
+      <aside id="sidebar" className="sidebar">
+        <ul className="sidebar-nav" id="sidebar-nav">
+          <li className="nav-item">
+            <a className="nav-link collapsed" href="/">
+              <i className="bi bi-grid"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
 
-        <div className="col-12 col-md-10 mb-5">
-          <ThoughtList
-            thoughts={user.thoughts}
-            title={`${user.username}'s thoughts...`}
-            showTitle={false}
-            showUsername={false}
-          />
+          <li className="nav-item">
+            <a
+              className="nav-link collapsed"
+              data-bs-target="#components-nav"
+              data-bs-toggle="collapse"
+              href="#"
+            >
+              <i className="bi bi-menu-button-wide"></i>
+              <span>Profile</span>
+              <i className="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <a
+              className="nav-link collapsed"
+              data-bs-target="#components-nav"
+              data-bs-toggle="collapse"
+              href="#"
+            >
+              <i className="bi bi-menu-button-wide"></i>
+              <span>List</span>
+              <i className="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <a
+              className="nav-link collapsed"
+              data-bs-target="#components-nav"
+              data-bs-toggle="collapse"
+              href="#"
+            >
+              <i className="bi bi-menu-button-wide"></i>
+              <span>Blank</span>
+              <i className="bi bi-chevron-down ms-auto"></i>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <div className="col-md-5 ml-auto">
+        <div className="col-12 col-md-8 mb-3 p-3"
+        style={{backgroundColor:"#edede9", opacity:"0.8"}}>
+          <CheckListForm />
         </div>
-        {!userParam && (
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: '1px dotted #1a1a1a' }}
-          >
-            <ThoughtForm />
-          </div>
-        )}
+        <div className="col-12 col-md-8 mb-3">
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <Checklist
+              checkLists={user?.checkLists}
+              user={user}
+              title="Here are your checklists!"
+            />
+          )}
+        </div>
       </div>
     </div>
+  </main>
   );
 };
 

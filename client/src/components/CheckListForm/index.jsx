@@ -6,9 +6,10 @@ import { ADD_CHECKLIST } from "../../utils/mutations";
 import { GET_ALL_CHECKLISTS, QUERY_ME } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
+import checkList from "../Checklist";
 
-const ThoughtForm = () => {
-  const [items, setItems,] = useState([]);
+const  CheckListForm= () => {
+  const [items, setItems,] = useState(['']);
   const [title, setTitle,] = useState("");
 
   const [characterCount, setCharacterCount] = useState(0);
@@ -32,31 +33,28 @@ const ThoughtForm = () => {
     const userId = payload.authenticatedPerson._id;
     console.log(userId);
     try {
-      
+      const newItems = items.map((item) => {
+        return { 
+          text:item,
+         };
+      });
       const { data } = await addChecklist({
         variables: {
-          items, title, userId,
+          items: newItems, title
           // Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username
-          thoughtAuthor: Auth.getProfile().authenticatedPerson.username,
+         
         },
       });
 
-      
-      setItems(""); // clear form value
+      console.log(data);
+      setItems([""]); // clear form value
       setTitle("");
     } catch (err) {
       console.error(err);
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    if (name === "items" && value.length <= 280) {
-      setItems((prevState) => [...prevState, value]);
-      setCharacterCount(value.length);
-    }
-  };
+  
   const handleTitle = (event) => {
     const { name, value, } = event.target;
 
@@ -65,6 +63,18 @@ const ThoughtForm = () => {
       setCharacterCount(value.length);
     }
   };
+
+  const addItems=()=>{
+    setItems([...items, '']);
+  }
+
+  const handleItemChange = (e) => {
+    const { name, value } = e.target;
+    const list = [...items];
+    list[name] = value;
+    setItems(list);
+  };
+
 // change the thought list form to make it the checklist and to add items to it and also connect the querys
   return (
     <div>
@@ -94,14 +104,19 @@ const ThoughtForm = () => {
                 ></textarea>
               {/* change this input to add a title and connect it to the mutation */}
               <div className="col-12 col-lg-9">
-                <textarea
-                  name="items"
-                  placeholder="Add items to list"
-                  value={thoughtText}
-                  className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical" }}
-                  onChange={handleChange}
-                ></textarea>
+               {
+                  items.map((item, index) => (
+                    <textarea
+                    name={index}
+                    placeholder="Add items to list"
+                    value={item}
+                    className="form-input w-100"
+                    style={{ lineHeight: "1.5", resize: "vertical" }}
+                    onChange={handleItemChange}
+                  ></textarea>
+                  ))
+               }
+                  <button onClick={addItems}>add</button>
                 <div
                   className="form-check"
                   style={{ display: "flex", justifyContent: "flex-end" }}
@@ -147,4 +162,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default CheckListForm;
