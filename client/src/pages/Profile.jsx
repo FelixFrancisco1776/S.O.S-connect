@@ -1,5 +1,7 @@
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import Modal  from "../components/Modal";
+import ModalTwo  from "../components/ModalTwo";
 
 import Checklist from "../components/Checklist";
 
@@ -51,14 +53,14 @@ const Profile = () => {
             className="col-md-10 mb-5 p-3 ml-auto"
             style={{ backgroundColor: "#edede9", opacity: "0.8", borderRadius:"65px" }}
           >
-            <CheckListForm />
+            <Modal />
           </div>
           <div className="col-12 col-md-10 mb-3 ml-auto"
           style={{ backgroundColor: "#edede9", opacity: "0.8", borderRadius:"65px" }}>
             {loading ? (
               <div>Loading...</div>
             ) : (
-              <Checklist
+              <ModalTwo
                 checkLists={user?.checkLists}
                 user={user}
                 title="Here are your checklists!"

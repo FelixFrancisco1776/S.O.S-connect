@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Modal } from "react-bootstrap";
 import CheckListForm from "../CheckListForm";
-import Checklist from "../Checklist";
+
 
 class MyModal extends Component {
   constructor(props) {
@@ -21,7 +21,8 @@ class MyModal extends Component {
 
   render() {
     return (
-      <>
+      <div className="modal fade">
+        <div>
         <Button variant="primary" onClick={this.handleShow}>
           Create Your List
         </Button>
@@ -45,7 +46,8 @@ class MyModal extends Component {
             <Button variant="primary">Save changes</Button>
           </Modal.Footer>
         </Modal>
-      </>
+        </div>
+      </div>
     );
   }
 }
