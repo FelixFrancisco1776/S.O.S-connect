@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
-
-import Checklist from "../components/Checklist";
-import CheckListForm from "../components/CheckListForm";
+import  Modal  from "../components/Modal";
+import ModalTwo from "../components/ModalTwo"
 
 import { GET_ALL_CHECKLISTS } from "../utils/queries";
 
@@ -21,7 +20,7 @@ const Home = () => {
               borderRadius: "65px",
             }}
           >
-            <CheckListForm />
+            <Modal />
           </div>
           <div
             className="col-12 col-md-8 mb-3"
@@ -34,7 +33,7 @@ const Home = () => {
             {loading ? (
               <div>Loading...</div>
             ) : (
-              <Checklist
+              <ModalTwo
                 checkLists={checkLists}
                 title="Here are your checklists!"
               />
