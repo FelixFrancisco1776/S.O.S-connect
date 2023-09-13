@@ -110,6 +110,7 @@ const CheckListForm = () => {
                     className="form-input w-100"
                     style={{ lineHeight: "1.5", resize: "vertical" }}
                     onChange={handleItemChange}
+                    key={index}
                   ></textarea>
                 ))}
                 <button onClick={addItems}>add</button>
