@@ -22,7 +22,7 @@ class MyModal extends Component {
     return (
       <>
         <Button variant="primary" onClick={this.handleShow}>
-          Create Your List
+          Show Created Lists
         </Button>
 
         <Modal
@@ -32,17 +32,11 @@ class MyModal extends Component {
           centered
         >
           <Modal.Header closeButton>
-            <Modal.Title>Create Your List</Modal.Title>
+            <Modal.Title>Here are the Users lists: </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Checklist />
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
-              Close
-            </Button>
-            <Button variant="primary">Save changes</Button>
-          </Modal.Footer>
         </Modal>
       </>
     );

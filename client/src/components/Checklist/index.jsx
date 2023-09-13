@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 //  change all thoughts to checkLists
 const checkList = ({ checkLists, title, user }) => {
   if (!checkLists?.length) {
-    return <h3>No Thoughts Yet</h3>;
+    return <h3>No Checklists</h3>;
   }
   // change the routing to add this list to the pages cd ..
   return (
@@ -19,7 +19,7 @@ const checkList = ({ checkLists, title, user }) => {
                 to={`/profiles/checklist.checklistAuthor`}
               >
                 {checkList.checkListAuthor}
-                yo
+                {user.username}
               </Link>
               <br />
               <span style={{ fontSize: "1rem" }}>

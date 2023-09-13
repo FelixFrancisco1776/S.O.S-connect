@@ -1,13 +1,11 @@
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import Modal  from "../components/Modal";
-import ModalTwo  from "../components/ModalTwo";
+import Modal from "../components/Modal";
+import ModalTwo from "../components/ModalTwo";
 
 import Checklist from "../components/Checklist";
-
-import { QUERY_USER } from "../utils/queries";
-
 import CheckListForm from "../components/CheckListForm";
+import { QUERY_USER } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
@@ -51,12 +49,22 @@ const Profile = () => {
         <div className="col-md-6 ml-auto">
           <div
             className="col-md-10 mb-5 p-3 ml-auto"
-            style={{ backgroundColor: "#edede9", opacity: "0.8", borderRadius:"65px" }}
+            style={{
+              backgroundColor: "#edede9",
+              opacity: "0.8",
+              borderRadius: "65px",
+            }}
           >
             <Modal />
           </div>
-          <div className="col-12 col-md-10 mb-3 ml-auto"
-          style={{ backgroundColor: "#edede9", opacity: "0.8", borderRadius:"65px" }}>
+          <div
+            className="col-12 col-md-10 mb-3 ml-auto"
+            style={{
+              backgroundColor: "#edede9",
+              opacity: "0.8",
+              borderRadius: "65px",
+            }}
+          >
             {loading ? (
               <div>Loading...</div>
             ) : (

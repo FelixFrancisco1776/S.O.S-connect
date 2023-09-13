@@ -8,7 +8,7 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-secondary text-white mb-4 py-3 flex-row align-center">
+    <header className="text-white mb-4 py-3 flex-row align-center">
       <aside id="sidebar" className="sidebar">
           <ul className="sidebar-nav" id="sidebar-nav">
             <li className="nav-item">

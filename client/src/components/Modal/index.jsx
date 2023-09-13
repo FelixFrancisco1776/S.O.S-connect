@@ -21,8 +21,7 @@ class MyModal extends Component {
 
   render() {
     return (
-      <div className="modal fade">
-        <div>
+      <>
         <Button variant="primary" onClick={this.handleShow}>
           Create Your List
         </Button>
@@ -30,7 +29,7 @@ class MyModal extends Component {
         <Modal
           show={this.state.show}
           onHide={this.handleClose}
-          dialogClassName="modal-90w"
+          dialogClassName="modal-slide-fade"
           centered
         >
           <Modal.Header closeButton>
@@ -39,15 +38,8 @@ class MyModal extends Component {
           <Modal.Body>
             <CheckListForm />
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
-              Close
-            </Button>
-            <Button variant="primary">Save changes</Button>
-          </Modal.Footer>
         </Modal>
-        </div>
-      </div>
+      </>
     );
   }
 }
