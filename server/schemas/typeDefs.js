@@ -4,22 +4,20 @@ const typeDefs = `
     username: String
     email: String
     password: String
-    thoughts: [Thought]!
+    checkLists: [CheckList]
   }
 
-  type Thought {
-    _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
+  type CheckItem {
+    text: String!
+    isCheck: Boolean
   }
 
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
+  type CheckList {
+    _id: ID!
+    title: String!
     createdAt: String
+    userId: ID!
+    items: [CheckItem]
   }
 
   type Auth {
@@ -27,21 +25,20 @@ const typeDefs = `
     user: User
   }
 
+  input CheckItemInput {
+    text: String!
+  }
+
   type Query {
     users: [User]
-    user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
-    me: User
+    user(username: String): User
+    checkLists: [CheckList]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
-    addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addCheckList(title: String!, items: [CheckItemInput]): CheckList
   }
 `;
 

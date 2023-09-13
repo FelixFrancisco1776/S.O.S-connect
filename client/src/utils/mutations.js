@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-
+// change the mutation to match the checklist
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -23,19 +23,20 @@ export const ADD_USER = gql`
     }
   }
 `;
-
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-      }
+// change the mutation to match the checklist
+;
+export const ADD_CHECKLIST = gql`
+mutation ADD_CHECKLIST($title: String!, $items: [CheckItemInput]) {
+  addCheckList(title: $title, items: $items) {
+    _id
+    createdAt
+    title
+    userId
+    items {
+      text
+      isCheck
     }
+  }
   }
 `;
 
@@ -53,4 +54,5 @@ export const ADD_COMMENT = gql`
       }
     }
   }
-`;
+`
+;
