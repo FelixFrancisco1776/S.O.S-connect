@@ -20,7 +20,6 @@ const Home = () => {
                 <span>Dashboard</span>
               </a>
             </li>
-
             <li className="nav-item">
               <a
                 className="nav-link collapsed"
@@ -30,27 +29,18 @@ const Home = () => {
               >
                 <i className="bi bi-menu-button-wide"></i>
                 <span>Profile</span>
-                <i className="bi bi-chevron-down ms-auto"></i>
               </a>
-              <a
-                className="nav-link collapsed"
-                data-bs-target="#components-nav"
-                data-bs-toggle="collapse"
-                href="#"
-              >
-                <i className="bi bi-menu-button-wide"></i>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link collapsed" href="/">
+                <i className="bi bi-grid"></i>
                 <span>List</span>
-                <i className="bi bi-chevron-down ms-auto"></i>
               </a>
-              <a
-                className="nav-link collapsed"
-                data-bs-target="#components-nav"
-                data-bs-toggle="collapse"
-                href="#"
-              >
-                <i className="bi bi-menu-button-wide"></i>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link collapsed" href="/">
+                <i className="bi bi-grid"></i>
                 <span>Blank</span>
-                <i className="bi bi-chevron-down ms-auto"></i>
               </a>
             </li>
           </ul>

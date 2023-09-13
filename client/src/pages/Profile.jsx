@@ -1,5 +1,5 @@
-import { Navigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { Navigate, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 
 import Checklist from '../components/Checklist';
 
@@ -7,7 +7,7 @@ import { QUERY_USER} from '../utils/queries';
 
 import CheckListForm from '../components/CheckListForm';
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -18,7 +18,7 @@ const Profile = () => {
 
   const user = data?.me || data?.user || {};
   if (
-    Auth.loggedIn() && 
+    Auth.loggedIn() &&
     /* Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username, and compare it to the userParam variable */
     Auth.getProfile().authenticatedPerson.username === userParam
   ) {
