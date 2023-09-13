@@ -148,6 +148,29 @@ header h1{
   background-color: #4154f1;
 }
 
+/* Add this CSS to your stylesheet or a separate CSS file */
+
+/* Overlay */
+.modal-slide-fade .modal-backdrop {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Initial state - hidden */
+.modal-slide-fade .modal-dialog {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Final state - visible */
+.modal-slide-fade.show .modal-dialog {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
 .logo {
   height: 6em;
   padding: 1.5em;

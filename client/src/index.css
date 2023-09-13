@@ -1433,7 +1433,7 @@ label form [type="radio"] {
     top: 20px;
     left: 0;
     bottom: 0;
-    width: 360px;
+    width: 400px;
     /* display: none; */
   }
   
@@ -1537,7 +1537,7 @@ label form [type="radio"] {
     top: 245px;
     left: 0;
     bottom: 0;
-    width: 360px;
+    width: 400px;
   }
 }
 
@@ -1639,7 +1639,7 @@ label form [type="radio"] {
     top: 245px;
     left: 0;
     bottom: 0;
-    width: 360px;
+    width: 400px;
   }
 }
 
