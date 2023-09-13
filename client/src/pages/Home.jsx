@@ -1,13 +1,13 @@
 import { useQuery } from "@apollo/client";
 
-import ThoughtList from "../components/ThoughtList";
-import ThoughtForm from "../components/ThoughtForm";
+import Checklist from "../components/Checklist";
+import CheckListForm from "../components/CheckListForm";
 
-import { QUERY_THOUGHTS } from "../utils/queries";
+import { GET_ALL_CHECKLISTS } from "../utils/queries";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
+  const { loading, data } = useQuery(GET_ALL_CHECKLISTS);
+  const checkLists = data?.checkLists || [];
 
   return (
     <main>
@@ -21,8 +21,13 @@ const Home = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link collapsed" href="/me">
-                <i className="bi bi-grid"></i>
+              <a
+                className="nav-link collapsed"
+                data-bs-target="#components-nav"
+                data-bs-toggle="collapse"
+                href="/me"
+              >
+                <i className="bi bi-menu-button-wide"></i>
                 <span>Profile</span>
               </a>
             </li>
@@ -41,32 +46,19 @@ const Home = () => {
           </ul>
         </aside>
         <div className="col-md-5 ml-auto">
-          <div
-            className="col-12 col-md-8 mb-3 p-3"
-            style={{
-              backgroundColor: "#edede9",
-              opacity: "0.8",
-              borderRadius: "65px",
-            }}
-          >
-            <ThoughtForm />
+          <div className="col-12 col-md-8 mb-3 p-3"
+          style={{backgroundColor:"#edede9", opacity:"0.8"}}>
+            <CheckListForm />
           </div>
-          <div
-            className="col-12 col-md-8 mb-3"
-            style={{
-              backgroundColor: "#edede9",
-              opacity: "0.8",
-              borderRadius: "65px",
-            }}
-          >
-            {loading ? (
+          <div className="col-12 col-md-8 mb-3">
+            {/* {loading ? (
               <div>Loading...</div>
             ) : (
-              <ThoughtList
-                thoughts={thoughts}
-                title="Check out the lists below"
+              <Checklist
+                checkLists={checkLists}
+                title="Here are your checklists!"
               />
-            )}
+            )} */}
           </div>
         </div>
       </div>

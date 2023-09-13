@@ -19,12 +19,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
+  checkLists: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Thought',
-    },
-  ],
+      ref: "CheckList",
+    }
+  ]
 });
 
 userSchema.pre('save', async function (next) {
@@ -32,7 +32,6 @@ userSchema.pre('save', async function (next) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
-
   next();
 });
 
