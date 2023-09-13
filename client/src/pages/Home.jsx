@@ -1,13 +1,33 @@
 import { useQuery } from "@apollo/client";
+import getlocation from "../utils/map";
 
 import Checklist from "../components/Checklist";
 import CheckListForm from "../components/CheckListForm";
 
 import { GET_ALL_CHECKLISTS } from "../utils/queries";
 
+import React, { useState, useEffect } from 'react';
+
+const styles = {
+  map: {
+    height: "100%",
+    width: "100%",
+    position: "absolute",
+    top: "0",
+    left: "0",
+    zIndex: "-1",
+  },
+};
+
+
 const Home = () => {
   const { loading, data } = useQuery(GET_ALL_CHECKLISTS);
   const checkLists = data?.checkLists || [];
+
+  // useEffect(() => {
+  //   getlocation();
+   
+  // }, []);
 
   return (
     <main>
@@ -38,17 +58,20 @@ const Home = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link collapsed" href="/">
+              {/* div to show the map */}
+              
+              <a className="nav-link collapsed"  onClick={getlocation}>
                 <i className="bi bi-grid"></i>
-                <span>Blank</span>
+                <span>Show Position</span>
               </a>
             </li>
           </ul>
-        </aside>
+        </aside> 
+        <div id="demo" style={styles.map}></div>
         <div className="col-md-5 ml-auto">
           <div className="col-12 col-md-8 mb-3 p-3"
           style={{backgroundColor:"#edede9", opacity:"0.8"}}>
-            <CheckListForm />
+            <CheckListForm/>
           </div>
           <div className="col-12 col-md-8 mb-3">
             {/* {loading ? (
