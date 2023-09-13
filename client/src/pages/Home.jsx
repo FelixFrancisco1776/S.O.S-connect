@@ -10,12 +10,9 @@ import React, { useState, useEffect } from 'react';
 
 const styles = {
   map: {
-    height: "100%",
-    width: "100%",
-    position: "absolute",
-    top: "0",
-    left: "0",
-    zIndex: "-1",
+    width: '200%',
+    height: '400px',
+    backgroundColor: 'grey',
   },
 };
 
@@ -66,13 +63,15 @@ const Home = () => {
               </a>
             </li>
           </ul>
-        </aside> 
-        <div id="demo" style={styles.map}></div>
-        <div className="col-md-5 ml-auto">
+        </aside>
+        <div className="col-md-5 ml-auto"> 
           <div className="col-12 col-md-8 mb-3 p-3"
           style={{backgroundColor:"#edede9", opacity:"0.8"}}>
             <CheckListForm/>
           </div>
+          <div id="demo" style={styles.map}  className="box col-5">
+          <p>Click the button to get your coordinates.</p>
+        </div>
           <div className="col-12 col-md-8 mb-3">
             {/* {loading ? (
               <div>Loading...</div>
@@ -83,8 +82,10 @@ const Home = () => {
               />
             )} */}
           </div>
+          
         </div>
       </div>
+      
     </main>
   );
 };
