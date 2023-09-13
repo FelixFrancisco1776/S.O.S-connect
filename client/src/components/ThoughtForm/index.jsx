@@ -88,15 +88,14 @@ const ThoughtForm = () => {
                   // placeholder="Add item to list"
                   value={thoughtText}
                   className="form-input w-100"
-                  style={{ lineHeight: "1.5", resize: "vertical", height: "350px" }}
+                  style={{
+                    lineHeight: "1.5",
+                    resize: "vertical",
+                    height: "350px",
+                  }}
                   onChange={handleChange}
-                  
-                >
-
-</textarea>
-
+                ></textarea>
               </div>
-              
 
               <div className="col-12 col-lg-3">
                 <button
