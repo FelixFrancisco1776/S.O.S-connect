@@ -9,6 +9,39 @@ const Header = () => {
   };
   return (
     <header className="bg-secondary text-white mb-4 py-3 flex-row align-center">
+      <aside id="sidebar" className="sidebar">
+          <ul className="sidebar-nav" id="sidebar-nav">
+            <li className="nav-item">
+              <a className="nav-link collapsed" href="/">
+                <i className="bi bi-grid"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link collapsed"
+                data-bs-target="#components-nav"
+                data-bs-toggle="collapse"
+                href="/me"
+              >
+                <i className="bi bi-menu-button-wide"></i>
+                <span>Profile</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link collapsed" href="/">
+                <i className="bi bi-grid"></i>
+                <span>List</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link collapsed" href="/">
+                <i className="bi bi-grid"></i>
+                <span>Blank</span>
+              </a>
+            </li>
+          </ul>
+        </aside>
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
