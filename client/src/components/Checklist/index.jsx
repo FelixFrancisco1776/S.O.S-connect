@@ -8,18 +8,20 @@ const checkList = ({ checkLists, title, user }) => {
   // change the routing to add this list to the pages cd ..
   return (
     <div>
-      <h3>{title}</h3>
+      {/* <h3>{title}</h3> */}
       {checkLists &&
         checkLists.map((checkLists) => (
           <div key={checkLists._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {checkList.user}
+
               <Link
                 className="text-light"
                 to={`/profiles/checklist.checklistAuthor`}
               >
                 {checkList.checkListAuthor}
-                {user.username}
+                {user.user.username}
+
               </Link>
               <br />
               <span style={{ fontSize: "1rem" }}>
