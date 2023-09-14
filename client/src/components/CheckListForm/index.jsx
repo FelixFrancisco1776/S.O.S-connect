@@ -41,7 +41,6 @@ const CheckListForm = () => {
         variables: {
           items: newItems,
           title,
-          // Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username
         },
       });
 

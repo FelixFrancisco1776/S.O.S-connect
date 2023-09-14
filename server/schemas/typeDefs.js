@@ -16,7 +16,7 @@ const typeDefs = `
     _id: ID!
     title: String!
     createdAt: String
-    userId: ID!
+    user: User
     items: [CheckItem]
   }
 

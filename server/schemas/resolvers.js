@@ -20,7 +20,7 @@ const resolvers = {
       }
     },
     checkLists: async (parent, args, context) => {
-      return CheckList.find();
+      return CheckList.find().populate("user");
     },
   },
 
@@ -54,7 +54,7 @@ const resolvers = {
           title: args.title,
           items: args.items,
           // userId: args.userId
-          userId: context.user._id, // test id
+          user: context.user._id, // test id
         });
 
         //  update the currently logged in user's checklist to include this newly created checklist

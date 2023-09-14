@@ -13,7 +13,7 @@ const Profile = () => {
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(QUERY_USER, {
-    variables: { username: userParam },
+    variables: { username: Auth.getProfile().authenticatedPerson.username },
   });
 
   const user = data?.me || data?.user || {};
@@ -30,7 +30,7 @@ const Profile = () => {
   }
   if (!user?.username) {
     return (
-      <h4>
+      <h4 style={{color:"#e1e1e1"}}>
         You need to be logged in to see this. Use the navigation links above to
         sign up or log in!
       </h4>
