@@ -1012,8 +1012,10 @@ a:hover {
 }
 
 .btn.btn-primary {
-  background-color: #2d3e50;
-  color: #f1faee;
+  background-color: #edede9;
+  font-size: 30px;
+  font-weight: bold;
+  color: #2d3e50;
 }
 
 .btn.btn-primary:hover {
@@ -1433,7 +1435,7 @@ label form [type="radio"] {
     top: 20px;
     left: 0;
     bottom: 0;
-    width: 400px;
+    width: 420px;
     /* display: none; */
   }
   
@@ -1534,10 +1536,10 @@ label form [type="radio"] {
   }
   #sidebar {
     position: fixed;
-    top: 245px;
+    top: 305px;
     left: 0;
     bottom: 0;
-    width: 400px;
+    width: 420px;
   }
 }
 
@@ -1636,10 +1638,10 @@ label form [type="radio"] {
   }
   #sidebar {
     position: fixed;
-    top: 245px;
+    top: 305px;
     left: 0;
     bottom: 0;
-    width: 400px;
+    width: 420px;
   }
 }
 

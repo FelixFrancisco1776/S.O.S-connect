@@ -1,53 +1,67 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import getlocation from "../../utils/map";
+import Auth from "../../utils/auth";
 
-import Auth from '../../utils/auth';
-
+const styles = {
+  map: {
+    height: "100%",
+    width: "100%",
+    position: "absolute",
+    top: "0",
+    left: "0",
+    zIndex: "-1",
+  },
+};
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
     <header className="text-white mb-4 py-3 flex-row align-center">
       <aside id="sidebar" className="sidebar">
-          <ul className="sidebar-nav" id="sidebar-nav">
-            <li className="nav-item">
-              <a className="nav-link collapsed" href="/">
-                <i className="bi bi-grid"></i>
-                <span>Dashboard</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link collapsed"
-                data-bs-target="#components-nav"
-                data-bs-toggle="collapse"
-                href="/me"
-              >
-                <i className="bi bi-menu-button-wide"></i>
-                <span>Profile</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link collapsed" href="/">
-                <i className="bi bi-grid"></i>
-                <span>List</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link collapsed" href="/">
-                <i className="bi bi-grid"></i>
-                <span>Blank</span>
-              </a>
-            </li>
-          </ul>
-        </aside>
+        <ul className="sidebar-nav" id="sidebar-nav">
+          <li className="nav-item">
+            <a className="nav-link collapsed" href="/">
+              <i className="bi bi-grid"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a
+              className="nav-link collapsed"
+              data-bs-target="#components-nav"
+              data-bs-toggle="collapse"
+              href="/me"
+            >
+              <i className="bi bi-menu-button-wide"></i>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link collapsed" href="/">
+              <i className="bi bi-grid"></i>
+              <span>List</span>
+            </a>
+          </li>
+          <li className="nav-item btn w-100 m-1">
+            {/* div to show the map */}
+            <a className="nav-link collapsed" onClick={getlocation}>
+              <i className="bi bi-grid"></i>
+              <span>Show Position</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
             <h1 className="m-0">S.O.S Crisis</h1>
           </Link>
-          <p className="m-0">Hello Moto</p>
+          <div id="demo" style={styles.map} className="map m-0">
+            <p>Click the button to get your coordinates.</p>
+          </div>
         </div>
         <div>
           {Auth.loggedIn() ? (

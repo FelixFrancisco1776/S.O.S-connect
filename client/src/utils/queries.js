@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 // change the querys to match the checklist
 export const QUERY_USER = gql`
-query GET_BY_USERNAME($username: String) {
+query user($username: String!) {
   user(username: $username) {
     _id
     email
@@ -19,7 +19,7 @@ query GET_BY_USERNAME($username: String) {
 
 
 export const GET_ALL_CHECKLISTS = gql`
-query GET_ALL_CHECKLISTS {
+query checkLists {
   checkLists {
     _id
     createdAt
@@ -28,7 +28,10 @@ query GET_ALL_CHECKLISTS {
       isCheck
     }
     title
-    userId
+    user{
+      username
+      email
+    }
   }
 }
 `;

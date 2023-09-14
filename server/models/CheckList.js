@@ -25,7 +25,7 @@ const checkListSchema = new Schema({
     maxlength: 280,
     trim: true,
   },
-  userId: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
