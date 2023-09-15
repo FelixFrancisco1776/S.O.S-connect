@@ -1,39 +1,38 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 // change the querys to match the checklist
 export const QUERY_USER = gql`
-query user($username: String!) {
-  user(username: $username) {
-    _id
-    email
-    username
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      email
+      username
+      checkLists {
+        items {
+          text
+          isCheck
+        }
+        title
+      }
+    }
+  }
+`;
+
+export const GET_ALL_CHECKLISTS = gql`
+  query checkLists {
     checkLists {
+      _id
+      createdAt
       items {
         text
         isCheck
       }
       title
+      user {
+        username
+        email
+      }
     }
   }
-}
-`;
-
-
-export const GET_ALL_CHECKLISTS = gql`
-query checkLists {
-  checkLists {
-    _id
-    createdAt
-    items {
-      text
-      isCheck
-    }
-    title
-    user{
-      username
-      email
-    }
-  }
-}
 `;
 
 export const QUERY_SINGLE_THOUGHT = gql`
@@ -59,12 +58,17 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        thoughtAuthor
-        createdAt
-      }
+      checkLists {
+        items {
+          text
+          isCheck
+        }
+        title
+        user{
+          username
+          email
+        }
+      } 
     }
   }
 `;

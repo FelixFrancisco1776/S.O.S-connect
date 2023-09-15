@@ -43,6 +43,15 @@ const CheckListForm = () => {
           title,
         },
       });
+      console.log(data);
+      if (data.addChecklist) {
+        // Mutation was successful, you can perform additional actions if needed
+        console.log("Checklist created:", data.addChecklist);
+        setItems([""]); // clear form value
+        setTitle("");
+      } else {
+        console.log("Checklist creation failed.");
+      }
 
       console.log(data);
       setItems([""]); // clear form value
@@ -123,11 +132,7 @@ const CheckListForm = () => {
                   Create List
                 </button>
               </div>
-              {error && (
-                <div className="col-12 my-3 bg-danger text-white p-3">
-                  {error.message}
-                </div>
-              )}
+              {error && <div></div>}
             </form>
           </>
         ) : (

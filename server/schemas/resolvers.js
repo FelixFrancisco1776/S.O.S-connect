@@ -67,7 +67,7 @@ const resolvers = {
           }
         );
 
-        return checklist;
+        return checklist
       } else {
         throw AuthenticationError;
       }
