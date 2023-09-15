@@ -1420,7 +1420,7 @@ label form [type="radio"] {
   }
   .align-content-start-sm {
     align-content: flex-start;
-  }
+  }nav-down: ;
   .align-content-stretch-sm {
     align-content: stretch;
   }
@@ -1440,6 +1440,27 @@ label form [type="radio"] {
   }
   
 }
+
+.navbar {
+  display: flex;
+}
+
+.navbar-nav {
+  display: flex; 
+}
+
+.navbar-nav-items {
+  display: flex;
+  list-style: none;
+}
+
+.nav-item {
+  margin-right: 1rem; 
+}
+
+
+
+
 
 /* col-md */
 @media screen and (min-width: 768px) {
