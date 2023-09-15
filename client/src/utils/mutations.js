@@ -31,7 +31,7 @@ mutation addCheckList($title: String!, $items: [CheckItemInput]) {
     _id
     createdAt
     title
-    userId
+    user
     items {
       text
       isCheck
