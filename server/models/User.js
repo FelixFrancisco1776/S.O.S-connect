@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
+// added correct bcrypt so heroku stops throwing errors
 
 const userSchema = new Schema({
   username: {
