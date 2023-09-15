@@ -3,13 +3,15 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Gluten', cursive;
+  font-family: "Gluten", cursive;
 }
 header {
-  font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
+  background-image: url(/SOS_connect.svg);
+  background-repeat: no-repeat;
 }
 
-header h1{
+header h1 {
   font-size: 60px;
 }
 #root {
@@ -20,13 +22,13 @@ header h1{
   /* background-size: 100vh; */
 }
 
-
 .navbar {
   display: flex;
+  justify-content: center;
 }
 
 .navbar-nav {
-  display: flex; 
+  display: flex;
 }
 
 .navbar-nav-items {
@@ -35,14 +37,8 @@ header h1{
 }
 
 .nav-item {
-  margin-right: 1rem; 
+  margin-right: 1rem;
 }
-
-
-
-
-
-
 
 .row {
   --bs-gutter-x: 67.5rem;
@@ -50,8 +46,8 @@ header h1{
   display: flex;
   flex-wrap: wrap;
   margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-.5 * var(--bs-gutter-x));
-  margin-left: calc(-.5 * var(--bs-gutter-x));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
 }
 .sidebar {
   position: fixed;
@@ -194,8 +190,6 @@ header h1{
   transform: translateY(0);
 }
 
-
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -234,7 +228,4 @@ header h1{
 
 .box {
   width: 100%;
- 
-
 }
-
