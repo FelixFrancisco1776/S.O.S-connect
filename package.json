@@ -2,11 +2,10 @@
   "name": "programming-thoughts",
   "version": "1.0.0",
   "description": "",
-  "engines" : {
-    "node" : "20.4.0"
+  "engines": {
+    "node": "20.4.0"
   },
   "main": "server/server.js",
-
   "scripts": {
     "start": "node server --ignore client",
     "develop": "concurrently \"cd server && npm run start\" \"cd client && npm run dev\"",
@@ -23,6 +22,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    
     "bootstrap": "^5.3.1",
     "react-bootstrap": "^2.8.0"
   }
