@@ -133,7 +133,7 @@ const CheckListForm = () => {
                   Create List
                 </button>
               </div>
-              {error && <div></div>}
+
             </form>
           </>
         ) : (
