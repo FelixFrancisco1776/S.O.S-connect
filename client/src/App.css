@@ -7,8 +7,9 @@ body {
 }
 header {
   font-family: "Comfortaa", cursive;
-  background-image: url(/SOS_connect.svg);
+  background-image: url(/SOS_connect.png);
   background-repeat: no-repeat;
+  background-size: 8%;
 }
 
 header h1 {
