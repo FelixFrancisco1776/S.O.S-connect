@@ -8,7 +8,6 @@ function MyModal() {
   const [show, setShow] = useState(false);
   const { loading, error, data } = useQuery(GET_ALL_CHECKLISTS);
 
-
   const handleShow = () => {
     // this.setState({ show: true });
     setShow(true);
@@ -19,13 +18,10 @@ function MyModal() {
     setShow(false);
   };
 
-  
-
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
   if (data) console.log(data);
-
 
   return (
     <>
@@ -42,10 +38,7 @@ function MyModal() {
           <Modal.Title>Here are the Users lists: </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Checklist
-            checkLists={data.checkLists}
-            
-          />
+          <Checklist checkLists={data.checkLists} />
         </Modal.Body>
       </Modal>
     </>

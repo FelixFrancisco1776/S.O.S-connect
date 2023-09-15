@@ -3,8 +3,6 @@ import { useQuery } from "@apollo/client";
 import Modal from "../components/Modal";
 import ModalTwo from "../components/ModalTwo";
 
-import Checklist from "../components/Checklist";
-import CheckListForm from "../components/CheckListForm";
 import { QUERY_USER } from "../utils/queries";
 
 import Auth from "../utils/auth";
@@ -30,7 +28,7 @@ const Profile = () => {
   }
   if (!user?.username) {
     return (
-      <h4 style={{color:"#e1e1e1"}}>
+      <h4 style={{ color: "#e1e1e1" }}>
         You need to be logged in to see this. Use the navigation links above to
         sign up or log in!
       </h4>
@@ -46,7 +44,7 @@ const Profile = () => {
         >
           Viewing {userParam ? `${user.username}'s` : "Your"} Profile.
         </h1>
-        <div className="col-md-6 ml-auto">
+        <div className="col-12 col-md-6">
           <div
             className="col-md-10 mb-5 p-3 ml-auto"
             style={{

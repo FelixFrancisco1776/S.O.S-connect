@@ -1,17 +1,8 @@
 import { Link } from "react-router-dom";
 import getlocation from "../../utils/map";
 import Auth from "../../utils/auth";
+import ModalThree from "../ModalThree";
 
-const styles = {
-  map: {
-    height: "100%",
-    width: "100%",
-    position: "absolute",
-    top: "0",
-    left: "0",
-    zIndex: "-1",
-  },
-};
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
@@ -20,15 +11,11 @@ const Header = () => {
 
   return (
     <header className="text-white mb-4 py-3 flex-col align-center">
->
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
             <h1 className="m-0">S.O.S Crisis</h1>
           </Link>
-          <div id="demo" style={styles.map} className="map m-0">
-            <p>Click the button to get your coordinates.</p>
-          </div>
         </div>
         <div>
           {Auth.loggedIn() ? (
@@ -70,7 +57,7 @@ const Header = () => {
           <li className="nav-item" >
             {/* div to show the map */}
             <a onClick={getlocation}>
-              show postion
+              <ModalThree />
             </a>
           </li>
     </ul>
