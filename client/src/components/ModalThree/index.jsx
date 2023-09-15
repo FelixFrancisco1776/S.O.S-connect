@@ -20,7 +20,10 @@ function MyModal() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleButtonClick}>
+      <Button
+        variant="primary"
+        onClick={handleButtonClick}
+      >
         Show Location
       </Button>
 

@@ -41,33 +41,57 @@ const Header = () => {
         </div>
       </div>
       <div className="navbar">
-  <nav className="navbar-nav">
-    <ul className="navbar-nav-items">
-      <li className="nav-item">
-        <a href="/">Dashboard</a>
-      </li>
+        <nav className="navbar-nav justify-center">
+          <ul className="navbar-nav-items">
+            <li className="nav-item">
+              <a
+                className="
+                btn btn-primary"
+                href="/"
+              >
+                Dashboard
+              </a>
+            </li>
 
-      <li className="nav-item">
-      <a href="/me">Profile</a>
-      </li>
+            <li className="nav-item">
+              <a
+                className="
+                btn btn-primary"
+                href="/me"
+              >
+                Profile
+              </a>
+            </li>
 
-      <li className="nav-item">
-        <a href="/">List</a>
-      </li>
-          <li className="nav-item" >
-            {/* div to show the map */}
-            <a onClick={getlocation}>
-              <ModalThree />
-            </a>
-          </li>
-    </ul>
-  </nav>
-</div>
+            <li className="nav-item">
+              <a
+                className="
+                btn btn-primary"
+                href="/"
+              >
+                List
+              </a>
+            </li>
+            <li className="nav-item">
+              {/* div to show the map */}
+              <a onClick={getlocation}>
+                <ModalThree />
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="
+                btn btn-primary"
+                href="/"
+              >
+                Current Weather
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };
 
 export default Header;
-
-
-

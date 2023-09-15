@@ -44,25 +44,11 @@ const Profile = () => {
         >
           Viewing {userParam ? `${user.username}'s` : "Your"} Profile.
         </h1>
-        <div className="col-12 col-md-6">
-          <div
-            className="col-md-10 mb-5 p-3 ml-auto"
-            style={{
-              backgroundColor: "#edede9",
-              opacity: "0.8",
-              borderRadius: "65px",
-            }}
-          >
+        <div className="col-12 col-md-5">
+          <div className="p-3">
             <Modal />
           </div>
-          <div
-            className="col-12 col-md-10 mb-3 ml-auto"
-            style={{
-              backgroundColor: "#edede9",
-              opacity: "0.8",
-              borderRadius: "65px",
-            }}
-          >
+          <div>
             {loading ? (
               <div>Loading...</div>
             ) : (
