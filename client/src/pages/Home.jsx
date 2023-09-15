@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 
 import Modal from "../components/Modal";
 import ModalTwo from "../components/ModalTwo";
+import ModalThree from "../components/ModalThree";
 import { GET_ALL_CHECKLISTS } from "../utils/queries";
 
 import React, { useState, useEffect } from "react";

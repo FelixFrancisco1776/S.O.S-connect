@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 import getlocation from "../../utils/map";
 import Auth from "../../utils/auth";
-
-const styles = {
-  map: {
-    height: "100%",
-    width: "100%",
-    position: "absolute",
-    top: "0",
-    left: "0",
-    zIndex: "-1",
-  },
-};
+import ModalThree from "../ModalThree";
+// const styles = {
+//   map: {
+//     height: "100%",
+//     width: "100%",
+//     position: "absolute",
+//     top: "0",
+//     left: "0",
+//     zIndex: "-1",
+//   },
+// };
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
@@ -45,11 +45,11 @@ const Header = () => {
               <span>List</span>
             </a>
           </li>
-          <li className="nav-item btn w-100 m-1">
+          <li className="nav-item">
             {/* div to show the map */}
             <a className="nav-link collapsed" onClick={getlocation}>
               <i className="bi bi-grid"></i>
-              <span>Show Position</span>
+              <ModalThree />
             </a>
           </li>
         </ul>
@@ -59,9 +59,9 @@ const Header = () => {
           <Link className="text-light" to="/">
             <h1 className="m-0">S.O.S Crisis</h1>
           </Link>
-          <div id="demo" style={styles.map} className="map m-0">
+          {/* <div id="demo" style={styles.map} className="map m-0">
             <p>Click the button to get your coordinates.</p>
-          </div>
+          </div> */}
         </div>
         <div>
           {Auth.loggedIn() ? (

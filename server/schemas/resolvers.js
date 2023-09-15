@@ -7,11 +7,13 @@ const resolvers = {
       return User.find().populate("checkLists");
     },
     user: async (parent, { username }, context) => {
-      if(!username) {
-        if(context.user) {
+      if (!username) {
+        if (context.user) {
           const loggedInUsername = context.user.username;
-          console.log(loggedInUsername)
-          return User.findOne({ username: loggedInUsername }).populate("checkLists");
+          console.log(loggedInUsername);
+          return User.findOne({ username: loggedInUsername }).populate(
+            "checkLists"
+          );
         } else {
           throw AuthenticationError;
         }
@@ -67,7 +69,7 @@ const resolvers = {
           }
         );
 
-        return checklist
+        return checklist;
       } else {
         throw AuthenticationError;
       }

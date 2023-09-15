@@ -14,7 +14,7 @@ const CheckListForm = () => {
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addChecklist, { error }] = useMutation(ADD_CHECKLIST, {
+  const [addCheckList, { error }] = useMutation(ADD_CHECKLIST, {
     refetchQueries: [GET_ALL_CHECKLISTS, "checkLists", QUERY_ME, "me"],
   });
 
@@ -37,16 +37,17 @@ const CheckListForm = () => {
           text: item,
         };
       });
-      const { data } = await addChecklist({
+      const { data } = await addCheckList({
         variables: {
           items: newItems,
+          userId,
           title,
         },
       });
       console.log(data);
-      if (data.addChecklist) {
+      if (data.addCheckList) {
         // Mutation was successful, you can perform additional actions if needed
-        console.log("Checklist created:", data.addChecklist);
+        console.log("Checklist created:", data.addCheckList);
         setItems([""]); // clear form value
         setTitle("");
       } else {
