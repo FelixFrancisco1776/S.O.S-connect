@@ -19,6 +19,31 @@ header h1{
   text-align: center;
   /* background-size: 100vh; */
 }
+
+
+.navbar {
+  display: flex;
+}
+
+.navbar-nav {
+  display: flex; 
+}
+
+.navbar-nav-items {
+  display: flex;
+  list-style: none;
+}
+
+.nav-item {
+  margin-right: 1rem; 
+}
+
+
+
+
+
+
+
 .row {
   --bs-gutter-x: 67.5rem;
   --bs-gutter-y: 0;

@@ -19,41 +19,8 @@ const Header = () => {
   };
 
   return (
-    <header className="text-white mb-4 py-3 flex-row align-center">
-      <aside id="sidebar" className="sidebar">
-        <ul className="sidebar-nav" id="sidebar-nav">
-          <li className="nav-item">
-            <a className="nav-link collapsed" href="/">
-              <i className="bi bi-grid"></i>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a
-              className="nav-link collapsed"
-              data-bs-target="#components-nav"
-              data-bs-toggle="collapse"
-              href="/me"
-            >
-              <i className="bi bi-menu-button-wide"></i>
-              <span>Profile</span>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link collapsed" href="/">
-              <i className="bi bi-grid"></i>
-              <span>List</span>
-            </a>
-          </li>
-          <li className="nav-item btn w-100 m-1">
-            {/* div to show the map */}
-            <a className="nav-link collapsed" onClick={getlocation}>
-              <i className="bi bi-grid"></i>
-              <span>Show Position</span>
-            </a>
-          </li>
-        </ul>
-      </aside>
+    <header className="text-white mb-4 py-3 flex-col align-center">
+>
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
@@ -86,8 +53,34 @@ const Header = () => {
           )}
         </div>
       </div>
+      <div className="navbar">
+  <nav className="navbar-nav">
+    <ul className="navbar-nav-items">
+      <li className="nav-item">
+        <a href="/">Dashboard</a>
+      </li>
+
+      <li className="nav-item">
+      <a href="/me">Profile</a>
+      </li>
+
+      <li className="nav-item">
+        <a href="/">List</a>
+      </li>
+          <li className="nav-item" >
+            {/* div to show the map */}
+            <a onClick={getlocation}>
+              show postion
+            </a>
+          </li>
+    </ul>
+  </nav>
+</div>
     </header>
   );
 };
 
 export default Header;
+
+
+
