@@ -40,7 +40,7 @@ const CheckListForm = () => {
       const { data } = await addCheckList({
         variables: {
           items: newItems,
-          userId,
+          
           title,
         },
       });
