@@ -9,6 +9,8 @@ Welcome to the S-O-S Connect repository! This document provides information abou
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
+- [Link](#link)
+- [Photo](#photo)
 
 ## Project Overview
 
@@ -16,7 +18,25 @@ A Disaster Preparedness Planner app can help individuals and communities proacti
 
 ## Installation
 
-1. **Prerequisites**: You can run it with npm run develop.
-2. **Clone Repository**: Use the following command to clone the repository to your local machine:
-   ```bash
-   git clone https://github.com/yourusername/project-name.git
+**Prerequisites**: You can run it with npm run develop.
+
+## Contributing 
+- Cristoffer Bohorquez: https://github.com/Cristofferb7
+- Brandon Cruz: https://github.com/crandonbruz
+- Justin Moore: https://github.com/justinryan8828
+- Felix Francisco: https://github.com/FelixFrancisco1776
+
+## Usage
+
+After you install the dependencies and run the app, you're going to be able to post and save your personalize list for preparation and also check your live geolocation.
+
+## License
+- No license was implemented for this project.
+
+## Link
+- https://intense-brushlands-00209-785b740cd9c1.herokuapp.com/
+
+## Photo
+- Picture of the dashboard of the website.
+
+![sos crisis dashboard](https://github.com/FelixFrancisco1776/S.O.S-connect/assets/136852733/32452a21-6e91-4446-bb14-4ab8414c4fa9)
